@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -10,6 +11,27 @@ namespace Editor
 {
     public class TestBuild : UnityEditor.Editor
     {
+        [MenuItem("Build/Test process")]
+        public static void TestProcess()
+        {
+            
+            var temppath = Path.Combine(Path.GetTempPath(), "Update.zip");
+            var psi = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = $"/k echo {temppath}",
+                // UseShellExecute = false,
+                // CreateNoWindow = true,
+                // RedirectStandardOutput = true,
+            };
+            var process = new Process();
+            process.StartInfo = psi;
+            process.Start();
+            
+
+        }
+        
+        
 
         [MenuItem("Build/Build and zip V1 %g")]
         public static void BuildV1()
