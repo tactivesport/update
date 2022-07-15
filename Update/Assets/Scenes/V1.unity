@@ -351,6 +351,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 616372607}
+    - target: {fileID: 6598723164151680551, guid: 29dabdcaad3369c48a11391ee3c0c815, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeVersion
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598723164151680551, guid: 29dabdcaad3369c48a11391ee3c0c815, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VersionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6598723165537440009, guid: 29dabdcaad3369c48a11391ee3c0c815, type: 3}
       propertyPath: m_Name
       value: Canvas

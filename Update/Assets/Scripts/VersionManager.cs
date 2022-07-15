@@ -9,12 +9,14 @@ using UnityEngine;
 
 public class VersionManager : MonoBehaviour
 {
-    public readonly string CURFOLDER = Environment.CurrentDirectory + @"/UpdateFolder/";
-    public readonly string TEMPPATH = Path.Combine(Path.GetTempPath(), "Update.zip");
 
+    [Header("Use the 'Build' Menu item to export builds!")]
     [SerializeField] TMP_Text _screenDebug;
     [SerializeField] TMP_InputField _downloadTargetText;
     [SerializeField] string _targetVersion = "V2";
+
+    public readonly string CURFOLDER = Environment.CurrentDirectory + @"/UpdateFolder/";
+    public readonly string TEMPPATH = Path.Combine(Path.GetTempPath(), "Update.zip");
 
     public void ChangeVersion()
     {

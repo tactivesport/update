@@ -10,39 +10,36 @@ namespace Editor
 {
     public class TestBuild : UnityEditor.Editor
     {
-        [MenuItem("Build/zip %k")]
-        static void TryZip()
-        {
-            var executableFile = @"C:\Users\danie\Desktop\git\update\Update\Builds\V1.exe";
-            Zip(executableFile, "V1.zip");
-        }
 
-        [MenuItem("Build/Build and play V1 %g")]
+        [MenuItem("Build/Build, zip and play V1 %g")]
         public static void BuildV1()
         {
             var version = "V1";
             var executableFile = Build(version);
             Zip(executableFile, version);
-            Start(executableFile);
-            
+            Run(executableFile);
         }
 
-        [MenuItem("Build/Build and play V2 %h")]
+        [MenuItem("Build/Build, zip and play V2 %h")]
         public static void BuildV2()
         {
             var executableFile = Build("V2");
-            Start(executableFile);
+            Run(executableFile);
         }
 
-        [MenuItem("Build/Build V1 and V2 %j")]
+        [MenuItem("Build/Build V1 and V2 and zip to project folder %j")]
         public static void BuildBoth()
         {
             var version = "V1";
             var executable = Build(version);
             Zip(executable, version);
+            
+            version = "V2";
+            executable = Build(version);
+            Zip(executable, version);
         }
 
-        static void Start(string executableFile)
+        static void Run(string executableFile)
         {
             var proc = new Process();
             proc.StartInfo.FileName = executableFile;
@@ -68,10 +65,10 @@ namespace Editor
         static void Zip(string executableFile, string version)
         {
             string startPath = Path.GetDirectoryName(executableFile);
-            var destination = Path.Combine(new DirectoryInfo(Application.dataPath).Parent!.Parent!.FullName, version);
+            var destination = Path.Combine(new DirectoryInfo(Application.dataPath).Parent!.Parent!.FullName, $"{version}.zip");
             
-            if (Directory.Exists(destination))
-                Directory.Delete(destination);
+            if (File.Exists(destination))
+                File.Delete(destination);
             
             ZipFile.CreateFromDirectory(startPath, destination, CompressionLevel.Fastest, false);
         }
