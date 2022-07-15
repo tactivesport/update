@@ -219,6 +219,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: VersionManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6598723164598628935, guid: 29dabdcaad3369c48a11391ee3c0c815, type: 3}
+      propertyPath: m_text
+      value: Version 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598723164754310584, guid: 29dabdcaad3369c48a11391ee3c0c815, type: 3}
+      propertyPath: m_text
+      value: Downgrade
+      objectReference: {fileID: 0}
     - target: {fileID: 6598723165537440009, guid: 29dabdcaad3369c48a11391ee3c0c815, type: 3}
       propertyPath: m_Name
       value: Canvas

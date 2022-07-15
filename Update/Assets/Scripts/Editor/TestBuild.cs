@@ -11,20 +11,20 @@ namespace Editor
     public class TestBuild : UnityEditor.Editor
     {
 
-        [MenuItem("Build/Build, zip and play V1 %g")]
+        [MenuItem("Build/Build and zip V1 %g")]
         public static void BuildV1()
         {
             var version = "V1";
             var executableFile = Build(version);
             Zip(executableFile, version);
-            Run(executableFile);
         }
 
-        [MenuItem("Build/Build, zip and play V2 %h")]
+        [MenuItem("Build/Build and zip V2 %h")]
         public static void BuildV2()
         {
-            var executableFile = Build("V2");
-            Run(executableFile);
+            var version = "V2";
+            var executableFile = Build(version);
+            Zip(executableFile, version);
         }
 
         [MenuItem("Build/Build V1 and V2 and zip to project folder %j")]
@@ -37,13 +37,6 @@ namespace Editor
             version = "V2";
             executable = Build(version);
             Zip(executable, version);
-        }
-
-        static void Run(string executableFile)
-        {
-            var proc = new Process();
-            proc.StartInfo.FileName = executableFile;
-            proc.Start();
         }
 
         static string Build(string version)
@@ -74,6 +67,7 @@ namespace Editor
             
             Directory.Delete(startPath!, true);
             Directory.CreateDirectory(startPath);
+            
 
         }
 
