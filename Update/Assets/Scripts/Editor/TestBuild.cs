@@ -64,13 +64,17 @@ namespace Editor
 
         static void Zip(string executableFile, string version)
         {
-            string startPath = Path.GetDirectoryName(executableFile);
+            var startPath = Path.GetDirectoryName(executableFile);
             var destination = Path.Combine(new DirectoryInfo(Application.dataPath).Parent!.Parent!.FullName, $"{version}.zip");
             
             if (File.Exists(destination))
                 File.Delete(destination);
             
             ZipFile.CreateFromDirectory(startPath, destination, CompressionLevel.Fastest, false);
+            
+            Directory.Delete(startPath!, true);
+            Directory.CreateDirectory(startPath);
+
         }
 
         static void FindScene(string sceneName)
