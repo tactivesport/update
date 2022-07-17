@@ -71,7 +71,7 @@ public class VersionManager : MonoBehaviour
         OpenExplorerWindowAtPath(_tempfolder);
 #else
         OverrideCurrentBuild();
-        Process.Start($"{_targetVersion}.exe");
+        Process.Start($"{_targetVersion}.exe /k");
 #endif
 
 
